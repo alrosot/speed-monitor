@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ $1 = "upload" ]; then
+	echo "doing the upload"
+fi
+
 sampleFile='speed-monitor-sample.csv'
 if [ ! -f $sampleFile ]; then
     echo "Server ID,Sponsor,Server Name,Timestamp,Distance,Ping,Download,Upload" > $sampleFile
@@ -8,12 +12,12 @@ content=$(speedtest --csv)
 if [ $? -eq 0 ]; then
 	echo "$content" >> $sampleFile
 else
-	echo "0,0,0,$(date -u +"%Y%m%dT%H%M.000000"),0,0,0,0" >> $sampleFile
+	echo "0,0,0,$(date -u +"%Y-%m-%dT%H:%M:%S.000000Z"),0,0,0,0" >> $sampleFile
 fi
 
 function upload {
     file="speed-monitor-collect-"
-    file+=$(date +"%Y-%m-%d-%H%M" )
+    file+=$(date +"%Y%m%d%H%M" )
     date=$(date +"%a, %d %b %Y %T %z")
     content_type='application/text'
     string="PUT\n\n$content_type\n$date\nx-amz-acl:bucket-owner-read\nx-amz-storage-class:REDUCED_REDUNDANCY\n/speed-monitor/$file"
