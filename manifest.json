@@ -1,0 +1,16 @@
+{
+    "fileLocations": [
+        {
+            "URIPrefixes": [
+                "s3://speed-monitor/"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ",",
+        "textqualifier": "'",
+        "containsHeader": "true"
+    }
+}
+                            
