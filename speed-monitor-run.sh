@@ -2,8 +2,7 @@
 sampleFile='speed-monitor-sample.csv'
 
 function upload {
-    file="speed-monitor-collect-"
-    file+=$(date +"%Y%m%d%H%M" )
+    file="speed-monitor-collect-$(date +"%Y%m%d%H%M" ).csv"
     date=$(date +"%a, %d %b %Y %T %z")
     content_type='application/text'
     string="PUT\n\n$content_type\n$date\nx-amz-acl:bucket-owner-read\nx-amz-storage-class:REDUCED_REDUNDANCY\n/speed-monitor/$file"
