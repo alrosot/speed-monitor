@@ -7,15 +7,14 @@ function upload {
     content_type='application/text'
     string="PUT\n\n$content_type\n$date\nx-amz-acl:bucket-owner-read\nx-amz-storage-class:REDUCED_REDUNDANCY\n/speed-monitor/$file"
     signature=$(echo -en "${string}" | openssl sha1 -hmac "${aws_secret_access_key}" -binary | base64)
-    curl -v -X PUT -T "$sampleFile" \
+    curl -f -v -X PUT -T "$sampleFile" \
         -H "Host: speed-monitor.s3.amazonaws.com" \
         -H "Date: $date" \
         -H "x-amz-acl: bucket-owner-read" \
         -H "x-amz-storage-class: REDUCED_REDUNDANCY" \
         -H "Content-Type: $content_type" \
         -H "Authorization: AWS ${aws_access_key_id}:$signature" \
-        "https://speed-monitor.s3.amazonaws.com/$file"
-	# TODO: if everything is fine, delete sample file
+        "https://speed-monitor.s3.amazonaws.com/$file" && rm $sampleFile
 }
 
 if [ $1 = "upload" ]; then
