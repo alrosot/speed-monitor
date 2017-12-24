@@ -15,7 +15,7 @@ function upload {
         -H "x-amz-storage-class: REDUCED_REDUNDANCY" \
         -H "Content-Type: $content_type" \
         -H "Authorization: AWS ${aws_access_key_id}:$signature" \
-        --data "$content" "https://speed-monitor.s3.amazonaws.com/$file"
+        "https://speed-monitor.s3.amazonaws.com/$file"
 	# TODO: if everything is fine, delete sample file
 }
 
