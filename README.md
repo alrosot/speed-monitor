@@ -9,6 +9,6 @@ I've set this up running in a RaspberryPi with the following cron tasks:
 ```
 
 The first one is simply an hourly collection of speeds.
-And the second one will summarise everything collected since the last upload and send it to the cloud. Notice that I got my `aws_access_key` and `aws_secret_access_key` in my .profile
+And the second one will summarise everything collected since the last upload and send it to the cloud. Please note that I got my `aws_access_key` and `aws_secret_access_key` in my `.profile`
 
 And `speed-monitor-run.sh` is just a symlink to the file with the same name in the folder I git cloned this project.
