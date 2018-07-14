@@ -12,3 +12,9 @@ The first one is simply an hourly collection of speeds.
 And the second one will summarise everything collected since the last upload and send it to the cloud. Please note that I got my `aws_access_key` and `aws_secret_access_key` in my `.profile`
 
 And `speed-monitor-run.sh` is just a symlink to the file with the same name in the folder I git cloned this project.
+
+# On the cloud
+
+On my amazon account I got a S3 bucket on 'speed-monitor.s3.amazonaws.com'. And then I consume the data in QuickSight dashboard to see confirm how crappy my internet speeds are.
+
+I'll try to find sometime to convert that small infra into a terraform/cloud formation script.
