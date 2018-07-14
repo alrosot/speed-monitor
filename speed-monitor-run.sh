@@ -17,7 +17,7 @@ function upload {
         "https://speed-monitor.s3.amazonaws.com/$file" && rm $sampleFile
 }
 
-if [ $1 = "upload" ]; then
+if [ "$1" = "upload" ]; then
 	echo "doing the upload...."
 	upload
 	exit
