@@ -18,3 +18,5 @@ And `speed-monitor-run.sh` is just a symlink to the file with the same name in t
 On my amazon account I got a S3 bucket on 'speed-monitor.s3.amazonaws.com'. And then I consume the data in QuickSight dashboard to see confirm how crappy my internet speeds are.
 
 I'll try to find sometime to convert that small infra into a terraform/cloud formation script.
+
+![QuickSigh dashboard](img/quicksight-dashboard.png "QuickSight dashboard")
