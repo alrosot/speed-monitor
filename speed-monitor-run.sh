@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+echo "Measuring speed..."
 sampleFile='speed-monitor-sample.csv'
 
 function upload {
@@ -26,7 +28,7 @@ fi
 if [ ! -f $sampleFile ]; then
     echo "Server ID,Sponsor,Server Name,Timestamp,Distance,Ping,Download,Upload" > $sampleFile
 fi
-content=$(speedtest --csv)
+content=$(/usr/local/bin/speedtest --csv)
 if [ $? -eq 0 ]; then
 	echo "$content" >> $sampleFile
 else
