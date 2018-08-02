@@ -20,3 +20,6 @@ On my amazon account I got a S3 bucket on 'speed-monitor.s3.amazonaws.com'. And 
 I'll try to find sometime to convert that small infra into a terraform/cloud formation script.
 
 ![QuickSigh dashboard](img/quicksight-dashboard.png "QuickSight dashboard")
+
+# Running as a container
+docker run -e BUCKET_NAME='xxx' -e AWS_SECRET_ACCESS_KEY='xxx' -e AWS_ACCESS_ID='xxx' speed-monitor
