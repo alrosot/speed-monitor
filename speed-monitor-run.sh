@@ -1,5 +1,5 @@
-#!/bin/bash
-set -x
+#!/bin/ash
+
 echo "Measuring speed..."
 sampleFile='speed-monitor-sample.csv'
 
@@ -28,7 +28,7 @@ fi
 if [ ! -f $sampleFile ]; then
     echo "Server ID,Sponsor,Server Name,Timestamp,Distance,Ping,Download,Upload" > $sampleFile
 fi
-content=$(/usr/local/bin/speedtest --csv)
+content=$(/usr/bin/speedtest --csv)
 if [ $? -eq 0 ]; then
 	echo "$content" >> $sampleFile
 else

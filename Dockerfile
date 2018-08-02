@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM alpine:3.8
 
-RUN apt-get update && apt-get -y install cron && apt-get -y install python-pip && pip install speedtest-cli
+RUN apk add speedtest-cli=2.0.2-r0
 
 # Add crontab file in the cron directory
 ADD crontab /etc/cron.d/hello-cron
@@ -17,4 +17,4 @@ RUN crontab /etc/cron.d/hello-cron
 COPY ./speed-monitor-run.sh /root/
 
 # Run cron on foreground
-CMD cron && tail -f /var/log/cron.log
+CMD ["/usr/sbin/crond", "-f"]
